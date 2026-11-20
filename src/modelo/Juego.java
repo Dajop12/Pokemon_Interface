@@ -39,7 +39,7 @@ public class Juego {
     private void repartirManoInicial(Jugador jugador) {
         int cantidadPokemon = 0;
 
-        while (cantidadPokemon < 2) {
+        while (cantidadPokemon < 1) {
             cantidadPokemon = 0;
             for (int i = 0; i < 5; i++) {
                 jugador.robarCarta();
@@ -48,12 +48,12 @@ public class Juego {
                 Carta carta = jugador.getMano().get(i);
                 if (carta instanceof Pokemon && !(carta instanceof EvolucionPokemon)) {
                     cantidadPokemon++;
-                    if (cantidadPokemon >= 2) {
+                    if (cantidadPokemon >= 1) {
                         break;
                     }
                 }
             }
-            if (cantidadPokemon < 2) {
+            if (cantidadPokemon < 1) {
                 jugador.getMazo().getCartas().addAll(jugador.getMano());
                 jugador.getMano().clear();
                 Collections.shuffle(jugador.getMazo().getCartas());
